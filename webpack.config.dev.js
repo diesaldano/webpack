@@ -18,7 +18,8 @@ module.exports = {
         assetModuleFilename: 'assets/image/[hash][ext][query]'
     },
     mode: 'development',
-    watch:true,
+    devtool: 'source-map',
+    // watch:true,
     resolve: {
         extensions: ['.js'], // Extensiones con las que vamos a trabajar
         alias: {
@@ -93,6 +94,13 @@ module.exports = {
         }),
         new Dotenv()
     ],
+    devServer: {
+        static: './dist',
+        compress: true,
+        historyApiFallback:true,
+        port:3006,
+        open:true
+    }
     // optimization: {
     //     minimize:true,
     //     minimizer: [
